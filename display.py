@@ -1,6 +1,7 @@
 import pygame
 from pygame import Rect
 from model import Model
+from benchmarking import record_duration
 
 # Set up the drawing window
 SCREEN_X = 500
@@ -24,6 +25,7 @@ class Display:
         self.x_size = int(self.screen_x / self.rows)
         self.y_size = int(self.screen_y / self.cols)
 
+    @record_duration
     def update(self, model: Model):
         # Fill the background with white
         self.screen.fill((255, 255, 255))

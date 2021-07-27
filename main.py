@@ -2,6 +2,7 @@ import pygame
 from display import Display
 from classic_model import ClassicModel
 import sys
+from benchmarking import print_benchmarking, record_duration
 
 def main():
     rows, cols, cell_size = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
@@ -19,8 +20,10 @@ def main():
         display.update(model)
     pygame.quit()
 
+
 if __name__ == "__main__":
     if len(sys.argv) < 4:
         print("Usage: python ./main.py <columns> <rows> <cell sizes>")
         sys.exit(1)
     main()
+    print_benchmarking()

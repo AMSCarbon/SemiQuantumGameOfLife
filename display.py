@@ -26,7 +26,7 @@ class Display:
         self.y_size = int(self.screen_y / self.cols)
 
     @record_duration
-    def update(self, model: Model):
+    def update_old(self, model: Model):
         # Fill the background with white
         self.screen.fill((255, 255, 255))
         for i in range(0, self.rows):
@@ -34,5 +34,15 @@ class Display:
                 if model.should_draw(i, j):
                     pygame.draw.rect(self.screen, model.get_cell_colour(i, j),
                                      Rect(i * self.x_size, j * self.y_size, self.x_size, self.y_size))
+        # Update the display
+        pygame.display.flip()
+
+    @record_duration
+    def update(self, model: Model):
+        # Fill the background with white
+        self.screen.fill((255, 255, 255))
+        for cell in model.live_cells:
+            i, j = cell.get_position()
+            pygame.draw.rect(self.screen, model.get_cell_colour(i, j), Rect(i * self.x_size, j * self.y_size, self.x_size, self.y_size))
         # Update the display
         pygame.display.flip()

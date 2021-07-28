@@ -15,7 +15,7 @@ class Model:
     def get_dimensions(self) -> Tuple[int, int]:
         pass
 
-    def get_neighbours(self, row: int , col: int):
+    def get_neighbours(self, row: int, col: int):
         pass
 
     def get_cell_colour(self, col: int, row: int):

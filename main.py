@@ -1,13 +1,14 @@
 import pygame
 from display import Display
 from classic_model import ClassicModel
+from q_model import QModel
 import sys
 from benchmarking import print_benchmarking, record_duration
 
 def main():
     rows, cols, cell_size = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
     pygame.init()
-    model = ClassicModel(rows, cols)
+    model = QModel(rows, cols)
     display = Display(rows*cell_size, cols*cell_size)
     display.determine_sizing(model)
     running = True
